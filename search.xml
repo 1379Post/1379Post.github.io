@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>LaTeX数学符号大全</title>
+      <link href="/2019/LaTeX%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E5%A4%A7%E5%85%A8/"/>
+      <url>/2019/LaTeX%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E5%A4%A7%E5%85%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LaTeX数学符号大全"><a href="#LaTeX数学符号大全" class="headerlink" title="LaTeX数学符号大全"></a>LaTeX数学符号大全</h1><ol><li><p>指数和下标可以用<code>^</code>和<code>_</code>后加相应字符来实现。比如：<img src="https://i.loli.net/2019/10/30/und27kqb1xtALFz.gif" alt="foot.gif"></p></li><li><p>平方根（square root）的输入命令为：<code>\sqrt</code>，n 次方根相应地为: <code>\sqrt[n]</code>。方根符号的大小由LATEX自动加以调整。也可用 <code>\surd</code> 仅给出符号。比如：<img src="https://i.loli.net/2019/10/30/91l45h8QjEF3w2C.gif" alt="sqrt.gif"></p></li><li><p>命令<code>\overline</code> 和<code>\underline</code> 在表达式的上、下方画出水平线。比如：<img src="https://i.loli.net/2019/10/30/HNnBKeDAxgSwPrl.gif" alt="overline.gif"></p></li><li><p>命令<code>\overbrace</code> 和<code>\underbrace</code> 在表达式的上、下方给出一水平的大括号。</p></li></ol><p><img src="https://i.loli.net/2019/10/30/b6JKZgCIQvFG8mT.gif" alt="brace.gif"></p><ol start="5"><li>向量（Vectors）通常用上方有小箭头（arrow symbols）的变量表示。这可由<code>\vec</code> 得到。另两个命令<code>\overrightarrow</code> 和<code>\overleftarrow</code>在定义从 A 到 B 的向量时非常有用。<img src="https://i.loli.net/2019/10/30/7jOPVtGMvwUyWbJ.gif" alt="vec.gif"></li><li>分数（fraction）使用<code>\frac{...}{...}</code> 排版。一般来说，1/2 这种形式更受欢迎，因为对于少量的分式，它看起来更好些。<img src="https://i.loli.net/2019/10/30/39s4NRlLm2QZwgo.gif" alt="frac.gif"></li><li>积分运算符（integral operator）用<code>\int</code> 来生成。求和运算符（sum operator）由<code>\sum</code> 生成。乘积运算符（product operator）由<code>\prod</code> 生成。上限和下限用<code>^</code>和<code>_</code>来生成，类似于上标和下标。<img src="https://i.loli.net/2019/10/30/XtVkU5iz1oHOCeA.gif" alt="int.gif"></li></ol><p><strong><em>以下提供一些常用符号的表示方法:</em></strong></p><p><img src="https://i.loli.net/2019/10/30/Hg3fmMRDnCLkoTs.gif" alt="1.gif"></p><p><img src="https://i.loli.net/2019/10/30/n89EpFRmP6hajOf.gif" alt="2.gif"></p><p><img src="https://i.loli.net/2019/10/30/EqiZQWfcHt5S2PK.gif" alt="3.gif"></p><p><img src="https://i.loli.net/2019/10/30/78wT6yejgLkYOnC.gif" alt="4.gif"></p><p><img src="https://i.loli.net/2019/10/30/16jftM4VgUBJDWI.gif" alt="5.gif"></p><p><img src="https://i.loli.net/2019/10/30/qdmFNI43nSAB8l6.gif" alt="6.gif"></p><p><img src="https://i.loli.net/2019/10/30/jQZa9g1zODEnH6x.gif" alt="7.gif"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 主站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LaTex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>题解 P1195 【口袋的天空】</title>
       <link href="/2019/%E9%A2%98%E8%A7%A3-P1195-%E3%80%90%E5%8F%A3%E8%A2%8B%E7%9A%84%E5%A4%A9%E7%A9%BA%E3%80%91/"/>
       <url>/2019/%E9%A2%98%E8%A7%A3-P1195-%E3%80%90%E5%8F%A3%E8%A2%8B%E7%9A%84%E5%A4%A9%E7%A9%BA%E3%80%91/</url>
