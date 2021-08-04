@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="【数据结构】并査集"><meta name="keywords" content="数据结构"><meta name="author" content="1379号监听员"><meta name="copyright" content="1379号监听员"><title>【数据结构】并査集 | 1379号监听站</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E6%9F%BB%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">并査集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E6%A0%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">找根</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">优化</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://s3.bmp.ovh/imgs/2021/08/444fdf54b3af0f7d.jpg"></div><div class="author-info__name text-center">1379号监听员</div><div class="author-info__description text-center"></div><div class="follow-button"><a target="_blank" rel="noopener" href="https://www.luogu.org/space/show?uid=155907">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">24</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s3.bmp.ovh/imgs/2021/08/dc0b1854ebb475ee.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">1379号监听站</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主站</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">【数据结构】并査集</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-27</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E4%B8%BB%E7%AB%99/">主站</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">687</span><span class="post-meta__separator">|</span><span>阅读时长: 2 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="并査集"><a href="#并査集" class="headerlink" title="并査集"></a>并査集</h1><p><strong>并査集</strong>是一个用于维护**不相交集合（Disjoint Set)**的数据结构。其本质是对每一个元素选定一个“代表元”，且相同集合中元素的“代表元”相同（这个集合的“代表元”就是其中每个节点的代表元）。</p>
+<p>注意：这个字读<strong>chá</strong>$!!!$</p>
+<p>并査集可以用于维护具有<strong>传递性</strong>的信息，一个典型的例子是相等关系(若$a=b$，$b=c$,则$a=c$)（$ps$：恋爱关系很明显不具有传递性$\dots$)</p>
+<hr>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>算法竞赛领域的“并査集”一般指<strong>树形并查集</strong>（并查集的实现还有一种链表形式，但效率非常低下，所以一般不使用）</p>
+<p>树形并查集的结构是一个<strong>森林</strong>，<strong>每棵树代表一个集合</strong>，其<strong>树根</strong>就是“代表元”，其结构如图所示：</p>
+<p><img src="https://i.loli.net/2019/11/02/12t49VXGqTa85oL.png" alt="并查集演示.png"></p>
+<p>（图中1,2,3号节点构成一个代表元为1的集合，4号节点构成一个代表元为4的集合，5,6,7,8号节点构成一个代表元为5的集合）</p>
+<p>由此可以看出，这种并查集的实现只要找到树根就可以判断两个元素是否在一个集合中，效率很高。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>并查集的功能通过两个基本操作来实现，即“找根”和“合并”：</p>
+<h3 id="找根"><a href="#找根" class="headerlink" title="找根"></a>找根</h3><p>首先我们需要存储每个节点的父节点：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> fa[maxn] <span class="comment">//x的父节点为fa[x]</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，对于每个节点，我们只需要<strong>沿着“父节点”不断向上寻找，直到找到父节点是自身的节点</strong>（<strong>树根</strong>）</p>
+<p><img src="https://i.loli.net/2019/11/02/1w73FBHV2UMfvxS.png" alt="找根.png"></p>
+<p>比如说对4号节点进行“找根”，因为4号节点的父节点是2号节点，再对2号节点进行“找根”，依此类推。直到找到1号节点，因为1号节点的父节点指向自身，因此可以判定1号节点是树根，即4号的“代表元”。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[v]==v) <span class="keyword">return</span> v; <span class="comment">//如果是根节点，返回</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">getf</span>(f[v]); <span class="comment">//否则找根</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>因为每个集合都由一个“代表元”（树根）指定，所以只要<strong>简单地合并两个集合的“代表元”（使一个“代表元”成为另一个“代表元”的子节点）</strong>，就可以合并两个集合。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x=<span class="built_in">getf</span>(a); <span class="comment">//a的“代表元”</span></span><br><span class="line">    <span class="keyword">int</span> y=<span class="built_in">getf</span>(b); <span class="comment">//b的“代表元”</span></span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span>; <span class="comment">//a与b在同一个集合中</span></span><br><span class="line">    f[x]=y; <span class="comment">//合并</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>使用上面方式实现的并查集已经可以实现其功能了，但是还存在一个问题：</p>
+<p><img src="https://i.loli.net/2019/12/08/lCKevRDrWUafHkb.png"></p>
+<p>如果并查集被合并成像上图一样的链式结构，那么对n号节点</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">1379号监听员</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://listener1379.site/2019/【数据结构】并査集/">https://listener1379.site/2019/【数据结构】并査集/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://listener1379.site">1379号监听站</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div><div class="social-share pull-right"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/%E9%A2%98%E8%A7%A3-P1195-%E3%80%90%E5%8F%A3%E8%A2%8B%E7%9A%84%E5%A4%A9%E7%A9%BA%E3%80%91/"><i class="fa fa-chevron-left">  </i><span>题解 P1195 【口袋的天空】</span></a></div><div class="next-post pull-right"><a href="/2019/GDB%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"><span>GDB简单实用教程</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '7eb42bfb73a159026f1b',
+  clientSecret: '3ebfe7728284d8d4c61ac3e789afb034ae2135e4',
+  repo: '1379post.github.io',
+  owner: '1379Post',
+  admin: '1379Post',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(https://s3.bmp.ovh/imgs/2021/08/dc0b1854ebb475ee.png)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By 1379号监听员</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"superSample":2,"width":210,"height":420,"position":"right","hOffset":0,"vOffset":0},"log":false,"tagMode":false});</script></body></html>

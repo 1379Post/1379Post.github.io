@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="GDB简单实用教程"><meta name="keywords" content="实用教程"><meta name="author" content="1379号监听员"><meta name="copyright" content="1379号监听员"><title>GDB简单实用教程 | 1379号监听站</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">GDB简单实用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows%E4%B8%8BGDB%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">Windows下GDB使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB%E6%8C%87%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">GDB指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB%E7%82%B9%E4%BD%8D%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">GDB点位：</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://s3.bmp.ovh/imgs/2021/08/444fdf54b3af0f7d.jpg"></div><div class="author-info__name text-center">1379号监听员</div><div class="author-info__description text-center"></div><div class="follow-button"><a target="_blank" rel="noopener" href="https://www.luogu.org/space/show?uid=155907">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">24</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s3.bmp.ovh/imgs/2021/08/dc0b1854ebb475ee.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">1379号监听站</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主站</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">GDB简单实用教程</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-24</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E4%B8%BB%E7%AB%99/">主站</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="GDB简单实用教程"><a href="#GDB简单实用教程" class="headerlink" title="GDB简单实用教程"></a>GDB简单实用教程</h1><p><strong>GDB</strong>是G++附带的调试工具，提供了设置断点、打印变量、单步调试等功能，可以让你在调试程序时事半功倍…</p>
+<p>GDB可以</p>
+<ol>
+<li>启动你的程序，可以按照你的定制要求随心所欲的运行程序。 </li>
+<li>可让被调试的程序在你所指定的调置的断点处停住。 </li>
+<li>当程序被停住时，可以检查此时你的程序中所发生的事，以及内存状态等。 </li>
+<li>动态的改变你程序的执行环境。</li>
+</ol>
+<p>当然，GDB不是这个东西：<br><img src="https://i.loli.net/2019/09/08/oMO32A6j5CX8rvS.png" alt="TIM截图20190908113017.png"></p>
+<p>(图形化的GDB缺少一些必要的回显，例如函数中断点不会显示当前函数名和参数，有些时候很麻烦)。。。</p>
+<h2 id="Windows下GDB使用"><a href="#Windows下GDB使用" class="headerlink" title="Windows下GDB使用"></a>Windows下GDB使用</h2><p>一般情况下GDB在Windows系统下会在MinGW或MinGW64文件夹下的bin目录中，如图：</p>
+<p><img src="https://i.loli.net/2019/09/08/HDFPnO5xceVuiYA.png" alt="TIM截图20190908113710.png"></p>
+<p>双击即可开始运行，如果你想要用命令也可以<code>cd</code>到这个目录然后<code>.\gdb</code></p>
+<p><img src="https://i.loli.net/2019/09/08/7VGX1dITkZofjgS.png" alt="TIM截图20190908114132.png"></p>
+<p>(注：笔者使用的是CMDer，与普通CMD效果可能略有出入)</p>
+<p><strong>GDB使用的前置条件是你的程序在编译时包含了调试信息</strong>，如果你在使用命令行编译，那么请在指令的后面加入<code>-g</code>;如果你在使用IDE的话，也需要将IDE中的编译指令加入<code>-g</code>,如果你的IDE中有默认的“Debug”属性的话，那么用默认的就行：</p>
+<p><img src="https://i.loli.net/2019/09/08/zCpjK3eUSEPT7L1.png" alt="TIM截图20190908115335.png"></p>
+<p>在加入<code>-g</code>时，值得注意的时<code>-g</code>一共有4个等级：</p>
+<ul>
+<li><code>-g0</code>等于不加-g。即不包含任何信息</li>
+<li><code>-g1</code>只包含最小信息，一般来说只有你不需要debug，只需要backtrace信息，并且真的很在意程序大小，或者有其他保密/特殊需求时才会使用-g1。</li>
+<li><code>-g2</code>为gdb默认等级，包含绝大多数你需要的信息。</li>
+<li><code>-g3</code>包含一些额外信息，例如包含宏定义信息。当你需要调试宏定义时，请使用-g3</li>
+</ul>
+<p>进入gdb后，输入<code>file &#123;你的程序&#125;</code>。然后使用<code>set args  &#123;arg1&#125; &#123;arg2&#125; … &#123;argN&#125;</code> 设定好你的程序参数，再运行<code>run</code>.</p>
+<p><img src="https://i.loli.net/2019/09/08/7L1mTvb3OpEayiF.png" alt="TIM截图20190908121133.png"></p>
+<h2 id="GDB指令"><a href="#GDB指令" class="headerlink" title="GDB指令"></a>GDB指令</h2><p><strong>help指令很强大！多用help！help里面总会有你需要的信息。如果你不知道如何使用help，请在gdb里面输入：<code>help all</code></strong></p>
+<p>这里挑选一些常用的指令给大家说明一下：（指令需要在控制权在GDB下时（如遇到断点）</p>
+<ol>
+<li><p><code>backtrace</code>显示栈信息。简写为<code>bt</code>;</p>
+</li>
+<li><p><code>frame x</code> 切换到栈的第x层。其中x会在<code>bt</code>命令中显示，从0开始。0表示栈顶。简写为<code>f</code>;</p>
+</li>
+<li><p><code>up/down x</code> 往栈顶/栈底移动x帧。当不输入x时，默认为1;</p>
+</li>
+<li><p><code>print x</code>打印x的信息，x可以是变量，也可以是对象或者数组。简写为<code>p</code>;</p>
+</li>
+<li><p><code>print */&amp;x</code> 打印x的内容/地址(就相当于C++的<code>*</code>和<code>&amp;</code>运算符);</p>
+</li>
+<li><p><code>call</code> 调用函数。注意此命令需要一个正在运行的程序;</p>
+</li>
+<li><p><code>break x</code>在的第x行设置断点，然后gdb会给出断点编号y。简写为<code>b</code>。后面会对断点进行更详细的解释;</p>
+</li>
+<li><p><code>command m</code> 设置程序执行到断点m时要看的内容，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">command n</span><br><span class="line"></span><br><span class="line">&gt;printf &quot;x is %d\n&quot;,x</span><br><span class="line"></span><br><span class="line">&gt;c</span><br><span class="line"></span><br><span class="line">&gt;end</span><br></pre></td></tr></table></figure>
+<p>如果command后面没有参数n，则命令被赋给最后一个breakpoint，这其实是说break和command连在一起用，在脚本里用就非常方便了;</p>
+</li>
+<li><p><code>continue</code> 继续运行程序。进入调试模式后，若你已经获取了你需要的信息或者需要程序继续运行时使用。可简写为<code>c</code></p>
+</li>
+<li><p><code>until</code> 执行到当前循环完成。可简写为<code>u</code>;</p>
+</li>
+<li><p><code>step</code> 单步调试，步入当前函数。可简写为<code>s</code>;</p>
+</li>
+<li><p><code>next</code>单步调试，步过当前函数。可简写为<code>n</code>;</p>
+</li>
+<li><p><code>finish</code> 执行到当前函数返回;</p>
+</li>
+<li><p><code>set var x=10</code> 改变当前变量x的值。也可以这样用：set {int}0x83040 = 10把内存地址0x83040的值强制转换为int并赋值为10(慎用);</p>
+</li>
+<li><p><code>info locals</code> 打印当前栈帧的本地变量;</p>
+</li>
+<li><p><code>jump</code>使当前执行的程序跳转到某一行;</p>
+</li>
+<li><p><code>return</code> 强制函数返回。可以指定返回值;</p>
+</li>
+<li><p><code>display x</code> 设置对表达式的展示，表达式x的值将在每次控制权转移到GDB下时打印一次;</p>
+</li>
+<li><p><code>delete y</code> 删除编号为y的断点，简写为<code>d</code>;</p>
+</li>
+</ol>
+<h2 id="GDB点位："><a href="#GDB点位：" class="headerlink" title="GDB点位："></a>GDB点位：</h2><ol>
+<li><p>**监视点(watchpoint)**。监视点是监视内存中某个地址，当该地址的数据被改变（或者被读取）时，程序交出控制权进入调试器。注意监视点分为软件模式和硬件模式：GDB 使用软件监视点的方式是在单步执行你的程序的同时测试变量的值，所以执行程序的速度会变慢。同时，软件监视点仅在当前线程有效。幸运的是，32 位的 Intel x86 处理器提供了 4 个特殊的调试寄存器用来方便调试程序，GDB 可以使用这些寄存器建立硬件监视点。GDB 总是会优先使用硬件监视点，因为这样不会减慢程序的执行速度。然而，可用的（enable的）硬件监视点的个数是有限的。如果你设置了过多的硬件监视点，当程序从中断的状态变为执行的状态（例如continue，until或者finish）时，GDB 可能无法把它们全部激活。另外，活动的硬件监视点的数量只有在试图继续执行程序时才能知道，也就是说，即使你设置了过多的硬件监视点，gdb在你运行程序之前也不会警告你。</p>
+<p>   设置监视点的命令有3个:</p>
+<ul>
+<li>watch（写监视）</li>
+<li>rwatch（读监视）</li>
+<li>awatch（读写监视）</li>
+</ul>
+<p>   他们的使用方法一样，皆为以下几种：</p>
+<ol>
+<li>(r/a)watch x x是一个变量名。当x的值改变/被读取时，程序交出控制权进入调试器。</li>
+<li>(r/a)watch 0xN N为一个有效地址。当该地址的内容变化/被读取时，程序交出控制权进入调试器。</li>
+<li>(r/a)watch *(int *)0xN N为一个有效地址。当该地址的中的int指针指向的内容变化/被读取时，程序交出控制权进入调试器。</li>
+<li>(r/a)watch -l *(int *)0xN N为一个有效地址。当该地址的中的int指针指向的内容变化/被读取，或者该地址的内容变化/被读取时，程序交出控制权进入调试器。</li>
+</ol>
+<p>   注意3和4的区别在于，当加入-l选项后，会同时监视表达式本身以及表达式指向的内容。</p>
+</li>
+<li><p>**断点(breakpoint)**。 断点是指当执行到程序某一步时，程序交出控制权进入调试器。值得注意的是，break会有一些变体：tbreak，hbreak，thbreak与rbreak。tbreak与break功能相同，只是所设置的断点在触发一次后自动删除。hbreak是一个硬件断点。thbreak则既是一个临时的硬件断点。注意硬件断点需要硬件支持，某些硬件可能不支持这种类型的断点。rbreak稍微特殊一些，它会在匹配正则表达式的全部位置加上断点。break家族的使用方法如下：</p>
+<ol>
+<li>(t/h)break x.cpp:y 。在代码x.cpp的第y行加入断点。x.cpp若不指定，则会以当前执行的文件作为断点文件。若程序未执行，则以包含main函数的源代码文件作为断点文件。若x.cpp和y都不指定，则以当前debugger的点作为断点处。</li>
+<li>(t/h)break 0xN。在地址N处加入断点。N必须为一个有效的代码段（code segment）地址。</li>
+<li>(t/h)break  x.cpp:func。在x.cpp的func函数入口处加入断点。x.cpp可以不提供直接使用break func。注意由于重载(overload)的存在，因此gdb可能会询问你希望在哪个函数加上断点。你也可以通过指定参数类型来避免该问题，例如break func(int ,char *)</li>
+<li>(t/h)break  +/-N。在当前运行处的第N行后/前加入断点。</li>
+<li>rbreak REGEXP。 在所有符合正则表达式REGEXP的函数入口加入断点。例如rbeak EX_* 表示在所有符合以EX_开头的函数入口处加入断点。</li>
+</ol>
+<p>   注意break后面还有2个可选参数，线程id和条件。线程id指在info threads中的线程序号，而非系统提供的tid。例如break x.cpp:y 2 if (a==24)，表示在2号线程的x.cpp的第y行加入断点，并且只有当a的值为24时，程序才会交出控制权进入调试器。</p>
+<p>   另外，breakpoints可以通过save命令保存，以方便使用者下次再次进入程序调试时不需要重设断点。</p>
+</li>
+<li><p>**捕捉点(catchpoint)**。捕捉点是当某些事件发生时，程序交出控制权进入调试器。例如catch一个exception，assert，signal，fork甚至syscall。tcatch与catch功能一样，只是所设置的捕捉点在触发一次后自动删除。</p>
+</li>
+<li><p>**跟踪点(tracepoint)**。跟踪点与上面三个断点不同之处在于，它只是跟踪记录信息而不会中断程序的运行。当你的程序是realtime程序（如GUI），或者与其他的程序有交互时，你可能会希望使用跟踪点达到监视程序而又不破坏程序自身行为的目的。与断点相同的是，跟踪点会保存下在跟踪点时的一些内存信息供使用者查阅，例如数组或者对象。</p>
+<p> 另外，tracepoints可以通过save命令保存，以方便使用者下次再次进入程序调试时不需要重设这些跟踪点。</p>
+</li>
+<li><p>**检查点(checkpoint)**：</p>
+<p>gdb可以保存某一个时间点的程序状态或者说是程序映像，并且稍后又可以返回到这个状态。这个称之为checkpoint(就如同你玩游戏时的检查点。。。)。</p>
+<p>每个检查点是进程的一个拷贝。这样当一个bug很难重现，而又担心调试过头了又要从头开始重现时，可以在估计要重现这个bug之前，做一个checkpoint，这样即使debug过头了，也可以从这个checkpoint开始，而不用重启整个程序并且期待它重现这个bug（也许需要很久！！）。</p>
+<p>但是每个checkpoint有一个唯一的进程id，这个pid与原始程序的pid不同，因此如果程序需要使用pid的信息时，需要慎重考虑。</p>
+</li>
+</ol>
+<p><strong>如果你觉得这篇教程很好的话，请将其分享出去！</strong>
+        </p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">1379号监听员</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://listener1379.site/2019/GDB简单实用教程/">https://listener1379.site/2019/GDB简单实用教程/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://listener1379.site">1379号监听站</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></div><div class="social-share pull-right"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91%E5%B9%B6%E6%9F%BB%E9%9B%86/"><i class="fa fa-chevron-left">  </i><span>【数据结构】并査集</span></a></div><div class="next-post pull-right"><a href="/2019/%E9%A2%98%E8%A7%A3-P2146-%E3%80%90-NOI2015-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E3%80%91/"><span>题解 P2146 【[NOI2015]软件包管理器】</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '7eb42bfb73a159026f1b',
+  clientSecret: '3ebfe7728284d8d4c61ac3e789afb034ae2135e4',
+  repo: '1379post.github.io',
+  owner: '1379Post',
+  admin: '1379Post',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(https://s3.bmp.ovh/imgs/2021/08/dc0b1854ebb475ee.png)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By 1379号监听员</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"superSample":2,"width":210,"height":420,"position":"right","hOffset":0,"vOffset":0},"log":false,"tagMode":false});</script></body></html>
