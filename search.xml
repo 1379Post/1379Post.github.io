@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>使用Kodexplorer搭建网盘以实现实验平板与外界的数据传输</title>
+      <link href="/2021/%E4%BD%BF%E7%94%A8Kodexplorer%E6%90%AD%E5%BB%BA%E7%BD%91%E7%9B%98%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%AE%9E%E9%AA%8C%E5%B9%B3%E6%9D%BF%E4%B8%8E%E5%A4%96%E7%95%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
+      <url>/2021/%E4%BD%BF%E7%94%A8Kodexplorer%E6%90%AD%E5%BB%BA%E7%BD%91%E7%9B%98%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%AE%9E%E9%AA%8C%E5%B9%B3%E6%9D%BF%E4%B8%8E%E5%A4%96%E7%95%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用kodexplorer搭建网盘以实现实验平板与外界的数据传输"><a class="markdownIt-Anchor" href="#使用kodexplorer搭建网盘以实现实验平板与外界的数据传输"></a> 使用Kodexplorer搭建网盘以实现实验平板与外界的数据传输</h1><h2 id="方案一-使用手机"><a class="markdownIt-Anchor" href="#方案一-使用手机"></a> 方案一： 使用手机</h2><p>工具：</p><ul><li>一个手机（要求与平板在同一wifi下，建议在家进行）</li><li>KSWeb: <a href="https://pan.xunlei.com/s/VMiBxChrS-4yNFZHJwZsODkTA1">https://pan.xunlei.com/s/VMiBxChrS-4yNFZHJwZsODkTA1</a> 提取码：rzhj</li><li>KodExplorer压缩包：<a href="https://pan.xunlei.com/s/VMiBxTUZV2mWyE9EuNZ5QDmuA1">https://pan.xunlei.com/s/VMiBxTUZV2mWyE9EuNZ5QDmuA1</a> 提取码：i57m</li></ul><p>方法：</p><ul><li><p>在手机上安装KSWeb</p></li><li><p>运行KSWeb，界面如下：</p></li></ul><p><img src="https://img14.360buyimg.com/ddimg/jfs/t1/202911/31/3531/27141/612a3ba3Ea915e688/40c439aeee1f57dc.jpg" alt="" /></p><ul><li>将手机连接电脑并打开USB调试（记得将USB模式改为“传输文件”）</li></ul><p><img src="https://img10.360buyimg.com/ddimg/jfs/t1/180248/12/21759/29961/612a3c32E347f3114/306ff263ce7b3ca9.jpg" alt="" /></p><p>（开启USB调试方法：<a href="https://jingyan.baidu.com/article/5553fa828c326065a3393458.html">https://jingyan.baidu.com/article/5553fa828c326065a3393458.html</a> )</p><ul><li>在电脑上找到手机上的&quot;htdocs&quot;文件夹，删除其中所有文件，并将“KodExplorer”压缩包中的<strong>KODExplorer文件夹中内容</strong>解压到&quot;htdocs&quot;目录下**（不是将KODExplorer文件夹解压到目录下！！！）**</li></ul><p><img src="https://img11.360buyimg.com/ddimg/jfs/t1/197683/36/5348/35828/612a3e2aE96342a00/b8aa2dbe91ab3394.png" alt="" /></p><p><img src="https://img13.360buyimg.com/ddimg/jfs/t1/186744/20/20400/7923/612a3e6eEab78d61c/6e59e4697d4bc62e.png" alt="" /></p><p><img src="https://img14.360buyimg.com/ddimg/jfs/t1/184665/27/21230/25930/612a3e8cEf472cb91/92f9812d80375f0e.png" alt="" /></p><ul><li>点击&quot;LIGHTPD&quot;，点击两次开关以重启</li></ul><p><img src="https://img13.360buyimg.com/ddimg/jfs/t1/178946/11/21263/14803/612a3ecbEcfd11e7f/bc445eafd7f7d308.jpg" alt="" /></p><ul><li>记下KSWeb显示的本地IP，如图：</li></ul><p><img src="https://img11.360buyimg.com/ddimg/jfs/t1/184353/34/21545/39174/612a3f66E3cff9864/090d05614ee9461f.jpg" alt="" /></p><ul><li><p>在平板上点击“设置”，再点击“关于平板电脑”，点击“安全补丁级别”以进入浏览器（如果显示“安全策略禁止使用该应用”并且卡住，点击返回键直到不卡为止。</p></li><li><p>在地址栏中输入刚刚记下的IP（后面加上:8080(半角冒号)），点击“前往”。</p></li><li><p>按照提示注册账号（一个人用的话只用一个管理员账号就行），登陆网盘。</p></li><li><p>在其他电脑或手机上同样登陆网盘，即可实现文件传输。</p></li></ul><p>效果如图：</p><p><img src="https://img12.360buyimg.com/ddimg/jfs/t1/178556/21/21502/107036/612a4094E89b48842/cad8ed8ccc3b5e1d.jpg" alt="" /></p><h2 id="方案二使用电脑较复杂待补充"><a class="markdownIt-Anchor" href="#方案二使用电脑较复杂待补充"></a> 方案二：使用电脑（较复杂，待补充）</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《关于转生成鉴人的第四天灾在土著星球上挖出了一个天才科学家这件事》</title>
       <link href="/2021/%E3%80%8A%E5%85%B3%E4%BA%8E%E8%BD%AC%E7%94%9F%E6%88%90%E9%89%B4%E4%BA%BA%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9%E7%81%BE%E5%9C%A8%E5%9C%9F%E8%91%97%E6%98%9F%E7%90%83%E4%B8%8A%E6%8C%96%E5%87%BA%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A4%A9%E6%89%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%BF%99%E4%BB%B6%E4%BA%8B%E3%80%8B/"/>
       <url>/2021/%E3%80%8A%E5%85%B3%E4%BA%8E%E8%BD%AC%E7%94%9F%E6%88%90%E9%89%B4%E4%BA%BA%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9%E7%81%BE%E5%9C%A8%E5%9C%9F%E8%91%97%E6%98%9F%E7%90%83%E4%B8%8A%E6%8C%96%E5%87%BA%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A4%A9%E6%89%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%BF%99%E4%BB%B6%E4%BA%8B%E3%80%8B/</url>
